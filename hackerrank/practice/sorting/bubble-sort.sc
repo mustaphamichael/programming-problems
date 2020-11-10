@@ -12,7 +12,8 @@ def countSwaps(a: Array[Int]): Unit = {
 
   for {
     i <- a.indices
-    j <- 0 until a.length - 1
+    //    j <- 0 until a.length - 1
+    j <- 0 until a.length - 1 - count // -count added for optimization
     if a(j) > a(j + 1)
   } swap(j, j + 1)
   println(s"Array is sorted in $count swaps.")
