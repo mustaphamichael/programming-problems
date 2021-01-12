@@ -15,5 +15,13 @@ def zeros(n: Int): Int = {
   loop(1, 0)
 }
 
+
+// Better Solution (Yea! I am surprised too)
+def zeros2(n: Int): Int =
+  n / 5 match {
+    case 0 => 0
+    case x => x + zeros2(x)
+  }
+
 // test
 zeros(1000)
