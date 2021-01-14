@@ -34,5 +34,12 @@ def going(n: Int): Double = {
   format(res)
 }
 
+// A better solution.
+// I love this. FP @ its best!!
+def going2(n: Int): Double = {
+  val factorials = (2 to n).scanLeft(BigDecimal(1))(_ * _)
+  (factorials.sum / factorials(n - 1).setScale(6, BigDecimal.RoundingMode.FLOOR)).toDouble
+}
+
 // test
-going(5)
+going2(5)
