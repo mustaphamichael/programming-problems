@@ -1,9 +1,7 @@
 // See https://www.codewars.com/kata/5536a85b6ed4ee5a78000035/train/scala
 
 def tour(arrFriends: List[String], ftwns: List[(String, String)], h: Map[String, Double]): Int = {
-  val friendTowns = ftwns.groupMap(_._1)(_._2).map(c => c._1 -> c._2.head)
-
-  def getTown(index: Int) = friendTowns.getOrElse(arrFriends(index), "t")
+  def getTown(index: Int) = ftwns.toMap.getOrElse(arrFriends(index), "t")
 
   def getDistance(town: String) = h.getOrElse(town, 0.0)
 
